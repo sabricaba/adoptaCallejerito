@@ -1,4 +1,4 @@
-// Productos
+//  Productos
 
 const mascotas = [
     {id:1, nombre:"Bartolo", imagen: "https://media.diariouno.com.ar/p/f54249878a58173518d1bc7ec8f5814e/adjuntos/298/imagenes/008/806/0008806731/1200x0/smart/perro-callejerojpg.jpg"},
@@ -28,44 +28,50 @@ function detalleMascotas() {
     
         contenedor.innerHTML= `
         <div class="mascota-detalle">
+        <hr>
         <h4> ${mascota.nombre} </h4>
-        <br>
         <img src="${mascota.imagen}" width="300px">
         <br>
+        <button id="btnAdoptame" class="btn btn-outline-dark boton-agregar-${mascota.id}"> &hearts; Adoptame &hearts; </button>
         <br>
-        <button class="boton-agregar-${mascota.id}"> &hearts; Adoptame &hearts; </button>
-        <hr>
         </div>
-        `;  
+        `;
     
         contenedorMascotas.appendChild(contenedor);
+
+        let agregarCarrito = document.querySelector(`.boton-agregar-${mascota.id}`);
+
+        agregarCarrito.onclick = function (){
+            guardar(mascota);
+        };
     }
 }
 
 detalleMascotas();
 
-
-
-
-
         
-    //     // Agregar al carrito
-    
-    //     let agregarCarrito = document.querySelector(`.boton-agregar-carrito-${producto.id}`);
-    
-    //     function guardar () {
-    //         let carrito = JSON.parse(sessionStorage.getItem("carrito"));
-    
-    //         if (!carrito) {
-    //             carrito = [];
-    //         }
-    
-    //         carrito.push(producto);
-    
-    //         sessionStorage.setItem("carrito", JSON.stringify(carrito));
-    //     }
-    
-    //     agregarCarrito.onclick = function (){
-    //         guardar();
-    //     };
-    // }}
+// Agregar al carrito
+
+function guardar (mascota) {
+    let carrito = JSON.parse(sessionStorage.getItem("carrito"));
+
+    if (!carrito) {
+        carrito = [];
+    }
+
+    carrito.push(mascota);
+
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+    agregarAlCarritoVisual(mascota);
+}
+
+function agregarAlCarritoVisual(mascota) {
+    const contenedor = document.getElementById('carrito-de-mascotitas');
+    const itemCarrito = document.createElement('div');
+
+    itemCarrito.className = 'item-carrito';
+    itemCarrito.innerHTML = `${mascota.nombre}`;
+
+    contenedor.appendChild(itemCarrito);
+
+}

@@ -53,11 +53,17 @@ nav ul li a.nav-link.active {
 }
 
 /* Body */
-
-.bodyTemporal {
-    height: 250px;
-    padding-top: 5px;
+.mascota-detalle {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+hr {
+    width: 75%;
+    border: 1px solid #03898e;
+    }
 
 /* Footer */
 

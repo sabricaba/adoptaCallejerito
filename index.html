@@ -26,13 +26,27 @@
                   </ul>
         </nav>
     </header>
+    <div class="d-flex p-3 mt-0 justify-content-end fixed-bottom">
+      <button id="btnCarrito" class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">¿Quien será adoptad@ hoy?</button>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">&hearts; La mejor vida para ellos y vos &hearts; </h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <aside id="carrito-de-mascotitas"></aside>
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="offcanvas" aria-label="" href="index.html">Adopta!</button>
+      </div>
+    </div>
     <main>
-        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
+        <div class="pricing-header px-3 py-3 pt-md-3 pb-md-4 my-4 mx-auto text-center">
             <h1 class="display-4 mt-4">Nuestros pichichos</h1>
             <p class="lead">Elige alguno y se la persona más feliz</p>
         </div>
         <div id="lista-mascotas">
         </div>
+       
     </main>
     <footer>
         <img class="logo" src="imagenes/logo/2.png" alt="">
